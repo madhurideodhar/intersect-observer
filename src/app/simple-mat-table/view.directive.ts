@@ -26,7 +26,7 @@ export class ViewDirective  implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    const options = { root: null, rootMargin: "100px 0px 0px 0px", threshold: 1 };
+    const options = { root: null, rootMargin: "100px 0px 0px 0px", threshold: 0.5 };
     this._observer = new IntersectionObserver(this._callback, options);
     this._observer.observe(this._elementRef.nativeElement);
   }
@@ -35,9 +35,9 @@ export class ViewDirective  implements AfterViewInit, OnDestroy {
 
   private _callback = (entries: any[], observer: any) => {
     let entry = entries[0];
-    console.log("entry.VisibiltyStatus"+ JSON.stringify(entry));
+  //  console.log("entry.VisibiltyStatus"+ JSON.stringify(entry));
     console.log("rowdata"+ JSON.stringify(this.rowdata));
-    console.log("entry.isIntersecting"+ entry.isIntersecting);
+    console.log("is visible"+ entry.isIntersecting);
   };
 
 }
