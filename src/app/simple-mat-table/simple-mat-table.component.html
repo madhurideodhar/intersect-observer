@@ -1,0 +1,14 @@
+<h2>Simple Angular mat-table</h2>
+
+<div style="height: 200px;overflow: scroll;" #thisDiv> 
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns" >
+    <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+    <td mat-cell *matCellDef="let emp"  >{{ emp[column] }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let emprow; columns: displayedColumns;let i = index" [viewport]="thisDiv" [rowdata]="emprow" appView></tr>
+</table>
+
+</div>
