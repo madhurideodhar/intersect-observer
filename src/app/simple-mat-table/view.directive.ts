@@ -31,7 +31,7 @@ export class ViewDirective  implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     console.log("this.rootElementName"+ this.rootElementName.innerHTML);
-    const options = { root:  this.rootElementName, rootMargin: "-70px 0px 0px 0px", threshold: 0.5 };
+    const options = { root:  this.rootElementName, rootMargin: "-40px 0px 0px 0px", threshold: 0.5 };
     this._observer = new IntersectionObserver(this._callback, options);
     this._observer.observe(this._elementRef.nativeElement);
   }
