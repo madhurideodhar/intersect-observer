@@ -86,7 +86,7 @@ export class SimpleMatTableComponent implements OnInit {
       id: 7,
       firstname: 'Ikey',
       lastname: 'Laight',
-      email: 'ilaight6@wiley.com',
+      email: '<a href="">ilaight6@wiley.com</a>',
       gender: 'Male',
       department: 'Support',
       jobtitle: 'Support Analyst',

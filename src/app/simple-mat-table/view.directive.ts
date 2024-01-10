@@ -8,12 +8,16 @@ export class ViewDirective  implements AfterViewInit, OnDestroy {
 
   private _observer!: IntersectionObserver;
 
-  @Input('viewport') rootElementName: Element;
+  @Input('viewport') rootElementName: HTMLElement;
 
   @Input('rowdata') rowdata: any;
+  @Input('table') table: HTMLElement;
 
   constructor(@Host()private _elementRef: ElementRef) {
-    console.log("the element for root"+ this.rootElementName)
+ //   console.log("the element for root"+ this.rootElementName)
+    // console.log("the table"+ this.table)
+    // console.log("this.table.getElementsByTagName('tbody')"+ this.table?.getElementsByTagName('tbody'))
+    ;
   }
 
   @HostListener('mouseout', ['$event']) somethingelse(e) {
@@ -26,7 +30,8 @@ export class ViewDirective  implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    const options = { root: null, rootMargin: "100px 0px 0px 0px", threshold: 0.5 };
+    console.log("this.rootElementName"+ this.rootElementName.innerHTML);
+    const options = { root:  this.rootElementName, rootMargin: "-70px 0px 0px 0px", threshold: 0.5 };
     this._observer = new IntersectionObserver(this._callback, options);
     this._observer.observe(this._elementRef.nativeElement);
   }
